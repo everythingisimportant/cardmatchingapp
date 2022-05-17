@@ -95,7 +95,6 @@ grid.addEventListener("click", function (event) {
   if (lickedCard.nodeName === "SECTION" || lickedCard === previousTarget || lickedCard.parentNode.classList.contains("selected") || lickedCard.parentNode.classList.contains("match"))
     return; // advoid click section and itself
   if (count < 2) {
-    ++count;
     previousTarget = lickedCard;
     lickedCard.parentNode.classList.add("selected");
     pairs.push(lickedCard.parentNode.dataset.name);
@@ -108,6 +107,7 @@ grid.addEventListener("click", function (event) {
       setTimeout(resetGuess, delay);
     }
   }
+  ++count;
 });
 
 const match = () => {
@@ -122,3 +122,7 @@ const resetGuess = () => {
   previousTarget = null;
   Array.from(document.querySelectorAll(".selected")).map((card) => card.classList.remove("selected"))
 }
+
+
+
+

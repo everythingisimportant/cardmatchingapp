@@ -99,7 +99,9 @@ grid.addEventListener("click", function (event) {
     lickedCard.parentNode.classList.add("selected");
     pairs.push(lickedCard.parentNode.dataset.name);
   }
+  ++count;
   if (count === 2) {
+    ++count;
     if (pairs[0] === pairs[1]) {
       setTimeout(match, delay);
       setTimeout(resetGuess, delay);
@@ -107,7 +109,6 @@ grid.addEventListener("click", function (event) {
       setTimeout(resetGuess, delay);
     }
   }
-  ++count;
 });
 
 const match = () => {
